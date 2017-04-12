@@ -9,10 +9,8 @@
 
 namespace Bootcamp.DataAccess
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Area
+
+	public partial class Area
     {
         public int Id { get; set; }
         public string Name { get; set; }

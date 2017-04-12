@@ -9,11 +9,10 @@
 
 namespace Bootcamp.DataAccess
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
-    public partial class BootcampEntities : DbContext
+	using System.Data.Entity;
+	using System.Data.Entity.Infrastructure;
+
+	public partial class BootcampEntities : DbContext
     {
         public BootcampEntities()
             : base("name=BootcampEntities")
