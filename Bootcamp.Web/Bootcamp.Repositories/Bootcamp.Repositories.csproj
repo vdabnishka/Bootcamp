@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{31A2C497-05EF-4DD9-A310-6AED3154626C}</ProjectGuid>
+    <ProjectGuid>{9149DBB3-B6E0-42B3-B167-49834BCA40B8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bootcamp.DataAccess</RootNamespace>
-    <AssemblyName>Bootcamp.DataAccess</AssemblyName>
+    <RootNamespace>Bootcamp.Repositories</RootNamespace>
+    <AssemblyName>Bootcamp.Repositories</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,70 +39,37 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Area.cs">
-      <DependentUpon>BootcampEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BootcampEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BootcampEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BootcampEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BootcampEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BootcampEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BootcampEntities.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Queries\AreaQueries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="BootcampEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BootcampEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <ProjectReference Include="..\Bootcamp.DataAccess\Bootcamp.DataAccess.csproj">
+      <Project>{31a2c497-05ef-4dd9-a310-6aed3154626c}</Project>
+      <Name>Bootcamp.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bootcamp.Models\Bootcamp.Models.csproj">
+      <Project>{06c0dfef-cbdd-485a-8106-5c08e19ee14e}</Project>
+      <Name>Bootcamp.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bootcamp.Repositories.Contracts\Bootcamp.Repositories.Contracts.csproj">
+      <Project>{89eccdf8-af64-4ca7-9147-7c0603f31c21}</Project>
+      <Name>Bootcamp.Repositories.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="BootcampEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BootcampEntities.edmx</DependentUpon>
-      <LastGenOutput>BootcampEntities.Context.cs</LastGenOutput>
-    </None>
-    <None Include="BootcampEntities.edmx.diagram">
-      <DependentUpon>BootcampEntities.edmx</DependentUpon>
-    </None>
-    <None Include="BootcampEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BootcampEntities.edmx</DependentUpon>
-      <LastGenOutput>BootcampEntities.cs</LastGenOutput>
-    </None>
+    <Folder Include="Commands\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\Queries\" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

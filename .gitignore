@@ -5,9 +5,11 @@
 .vs/
 bin/
 obj/
+Debug/
 Backup*/
 packages/
 Upgrade*.*
 *.user
 *.jfm
 *.dbmdl
+*.wadcfgx
