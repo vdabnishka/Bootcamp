@@ -1,0 +1,16 @@
+﻿@model List<Bootcamp.DataAccess.Area>
+
+@{
+	ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+	<h1>Areas</h1>
+
+	@{
+		foreach (var area in this.Model)
+		{
+			<text>@area.Name</text><br/>
+		}
+	}
+</div>
