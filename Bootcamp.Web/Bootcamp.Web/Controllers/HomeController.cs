@@ -1,18 +1,35 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Bootcamp.DataAccess;
+using Bootcamp.Repositories.Contracts.Queries;
+using Bootcamp.Repositories.Queries;
+using System.Threading.Tasks;
 
 namespace Bootcamp.Web.Controllers
 {
 	public class HomeController : Controller
 	{
-		public ActionResult Index()
+        private IAreaQueries _repo;
+        private AreaQueries areaQueries;
+
+        public HomeController() : this(new AreaQueries())
+        { }
+
+        public HomeController(AreaQueries repo)
+        {
+            _repo = repo;
+        }
+
+        public async Task<ActionResult> Index()
 		{
-			var context = new BootcampEntities();
-			var areas = context.Areas.ToList();
+			var areas = await _repo.Get();
 
 			return View(areas);
 		}
+
+        public ActionResult Areas()
+        {
+            return View();
+        }
 
 		public ActionResult About()
 		{
