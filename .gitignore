@@ -13,3 +13,7 @@ Upgrade*.*
 *.jfm
 *.dbmdl
 *.wadcfgx
+*.map
+/Bootcamp.Web/Bootcamp.Web/Scripts/Area/areaService.js
+/Bootcamp.Web/Bootcamp.Web/Scripts/Area/areaController.js
+/Bootcamp.Web/Bootcamp.Web/Scripts/Area/Area.js

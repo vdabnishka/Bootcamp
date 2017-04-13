@@ -1,0 +1,21 @@
+﻿@section scripts{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/app.js"></script>
+	<script src="~/Scripts/Area/areaService.js"></script>
+	<script src="~/Scripts/Area/areaController.js"></script>
+}
+@{
+    ViewBag.Title = "Areas";
+}
+
+<div ng-app="app">
+
+    <h2>Areas with TypeScript</h2>
+
+    <div ng-controller="areaController as ctrl">
+        <div ng-repeat="a in ctrl.Areas">
+            {{a.Name}}<br/>
+        </div>
+    </div>
+</div>
+
